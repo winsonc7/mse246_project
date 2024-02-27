@@ -15,10 +15,14 @@ y_train = df_train['LoanStatus']
 X_test_mess = df_test.drop(columns=['LoanStatus'])
 y_test = df_test['LoanStatus']
 
-columns_to_remove = ['BorrState', 'BorrZip', 'ProjectState', 'subpgmdesc', 'DeliveryMethod', 'BusinessType', 'NaicsCode', 'ApprovalDate', 'ChargeOffDate', 'SP500 YR', 'GrossChargeOffAmount']
+columns_to_include = ['ThirdPartyDollars', 'GrossApproval', 'Same State' , 'In CA', 'Missing Interest', 'INDIVIDUAL', 'Unemployment YR', 'Avg Home Price', 'GDP Delta YR', 'Log S&P Open', 'Missing Borr GDP']
 
-X_train = X_train_mess.drop(columns=columns_to_remove)
-X_test = X_test_mess.drop(columns=columns_to_remove)
+"""['ThirdPartyDollars', 'GrossApproval', 'Same State' , 'In CA', 'Missing Interest', 'INDIVIDUAL', 'Unemployment YR', 'Avg Home Price', 'GDP Delta YR', 'Log S&P Open', 'Missing Borr GDP']"""
+
+"""ThirdPartyDollars,GrossApproval,ApprovalDate,ApprovalFiscalYear,DeliveryMethod,subpgmdesc,TermInMonths,NaicsCode,ProjectState,BusinessType,LoanStatus,ChargeOffDate,GrossChargeOffAmount,Term Multiple,Same State,In CA,Is ThirdParty,Missing Interest,Refinance,Delta,Private Sector,Premier,CORPORATION,INDIVIDUAL,MISSING,PARTNERSHIP,SP500 YR,Unemployment YR,Avg Home Price,GDP Delta YR,Log S&P Open,BorrState Unemployment,ProjectState Unemployment,BorrState Income,ProjState Income,Missing Borr Income,Missing Proj Income,BorrState GDP,ProjState GDP,Missing Borr GDP,Missing Proj GDP,BorrState Vacancy,ProjectState Vacancy"""
+
+X_train = X_train_mess[columns_to_include].copy()
+X_test = X_test_mess[columns_to_include].copy()
 
 X_train["Intercept"] = 1
 X_test["Intercept"] = 1

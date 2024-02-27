@@ -15,7 +15,7 @@ y_train = df_train['LoanStatus']
 X_test_mess = df_test.drop(columns=['LoanStatus'])
 y_test = df_test['LoanStatus']
 
-columns_to_include = ['ThirdPartyDollars']
+columns_to_include = ['ThirdPartyDollars', 'GrossApproval', 'Same State' , 'In CA', 'Missing Interest', 'INDIVIDUAL', 'Unemployment YR', 'Avg Home Price', 'GDP Delta YR', 'Log S&P Open', 'Missing Borr GDP']
 
 """['ThirdPartyDollars', 'GrossApproval', 'Same State' , 'In CA', 'Missing Interest', 'INDIVIDUAL', 'Unemployment YR', 'Avg Home Price', 'GDP Delta YR', 'Log S&P Open', 'Missing Borr GDP']"""
 
@@ -26,8 +26,6 @@ X_test = X_test_mess[columns_to_include].copy()
 
 X_train["Intercept"] = 1
 X_test["Intercept"] = 1
-
-print(X_train)
 
 # Define your neural network architecture using TensorFlow/Keras
 model = tf.keras.Sequential([
@@ -40,7 +38,7 @@ model = tf.keras.Sequential([
 model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
 # Train the model
-model.fit(X_train, y_train, epochs=10, batch_size=100, validation_split=0.2)
+model.fit(X_train, y_train, epochs=10, batch_size=32, validation_split=0.2)
 
 # Evaluate the model on the testing dataset
 loss, accuracy = model.evaluate(X_test, y_test)
