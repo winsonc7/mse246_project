@@ -4,10 +4,8 @@ from sklearn.metrics import roc_curve, auc
 import matplotlib.pyplot as plt
 import util
 
-x_train, y_train = util.load_csv("MS&E 246 Data Updated 3/df_train_norm_full.csv")
-x_test, y_test = util.load_csv("MS&E 246 Data Updated 3/df_test_norm_full.csv")
-
-
+x_train, y_train = util.load_csv("Data/train_updated_norm_full.csv")
+x_test, y_test = util.load_csv("Data/test_updated_norm_full.csv")
 
 # Define your neural network architecture using TensorFlow/Keras
 model = tf.keras.Sequential([

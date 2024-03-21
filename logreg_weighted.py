@@ -5,8 +5,8 @@ from sklearn.utils.class_weight import compute_class_weight
 import numpy as np
 import util
 
-x_train, y_train = util.load_csv("MS&E 246 Data Updated 3/df_train_norm_full.csv")
-x_test, y_test = util.load_csv("MS&E 246 Data Updated 3/df_test_norm_full.csv")
+x_train, y_train = util.load_csv("Data/train_updated_norm_full.csv")
+x_test, y_test = util.load_csv("Data/test_updated_norm_full.csv")
 
 class_weights = compute_class_weight('balanced', classes=np.unique(y_train), y=y_train)
 class_weights_dict = dict(zip(np.unique(y_train), class_weights))

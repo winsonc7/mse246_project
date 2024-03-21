@@ -5,11 +5,11 @@ import matplotlib.pyplot as plt
 from ensemble_util import ensemble_neural_network
 import util
 
-x_train, y_train = util.load_csv("MS&E 246 Data Updated 3/df_train_norm_min.csv")
-x_test, y_test = util.load_csv("MS&E 246 Data Updated 3/df_test_norm_min.csv")
+x_train, y_train = util.load_csv("Data/train_updated_norm_full.csv")
+x_test, y_test = util.load_csv("Data/test_updated_norm_full.csv")
 
 vals = []
-for i in range(1, 14, 2):
+for i in range(1, 7, 2):
   ensemble_predictor = ensemble_neural_network(x_train, y_train, B=i)
   y_pred = ensemble_predictor(x_test)
   vals.append([i, y_pred])
