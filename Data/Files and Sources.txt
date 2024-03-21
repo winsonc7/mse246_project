@@ -1,0 +1,16 @@
+Files and data source
+history.csv: https://www.slickcharts.com/sp500/returns
+us-national-unemployment-rate.csv: https://www.macrotrends.net/1316/us-national-unemployment-rate
+MSPUS.csv: https://fred.stlouisfed.org/series/MSPUS
+united-states-gdp-growth-rate.csv: https://www.macrotrends.net/countries/USA/united-states/gdp-growth-rate
+Unemployment_State.csv: https://fred.stlouisfed.org/release?rid=116 (GU and VI are youth unemployment rate, and 1990 data was missing) (Palau (PW) lacks data, so filled with 0)
+^GSPC.csv: https://finance.yahoo.com/quote/%5EGSPC/history/
+Income by state: https://apps.bea.gov/regional/histdata/releases/0323spi/index.cfm
+GDP by state:https://www.bea.gov/data/gdp/gdp-state
+Rental vacancy rate: https://fred.stlouisfed.org/searchresults/?st=Vacancy%20Rate
+
+TODO:
+# Convert to numpy array
+# Pytorch is better
+# Make sure you get reasonable performance with the linear regression
+# Then revisit the Neural Network
