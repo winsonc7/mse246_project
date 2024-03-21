@@ -15,7 +15,6 @@ def ensemble_neural_network(X_train, y_train, B, num_neurons=64, activation='rel
         # Create a new neural network model
         model = Sequential()
         model.add(Dense(num_neurons, activation=activation, input_shape=(X_train.shape[1],)))
-        model.add(Dense(num_neurons, activation=activation))
         model.add(Dense(1, activation='sigmoid'))
         model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
         

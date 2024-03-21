@@ -27,7 +27,6 @@ X_test = X_test_mess[columns_to_include].copy()
 X_train["Intercept"] = 1
 X_test["Intercept"] = 1
 
-# Define your neural network architecture using TensorFlow/Keras
 model = tf.keras.Sequential([
     tf.keras.layers.Dense(units=64, activation='relu', input_shape=(X_train.shape[1],)),
     tf.keras.layers.Dense(units=64, activation='relu'),
@@ -36,12 +35,7 @@ model = tf.keras.Sequential([
 
 # Compile the model
 model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-
-# Train the model
-model.fit(X_train, y_train, epochs=10, batch_size=32, validation_split=0.2)
-
-# Evaluate the model on the testing dataset
-loss, accuracy = model.evaluate(X_test, y_test)
+model.fit(X_train, y_train, epochs=10, batch_size=1024, validation_split=0.2)
 
 # TRAIN STATS
 y_pred = model.predict(X_train)
