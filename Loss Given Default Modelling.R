@@ -200,4 +200,7 @@ print(paste("R-squared:", r_squared))
 ## Summary for modelling on Loss Given Default: Apply the classification model first, which is classify_model, 
 ## then apply the regression model, which is lgd_model_positive_chargeoff
 
+set.seed(123) # For reproducibility
+sampled_test_data <- test_data[sample(nrow(test_data), 1000), ]
+
 
